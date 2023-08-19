@@ -5,3 +5,32 @@
 html, body{
     box-sizing: border-box;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  @layer utilities {
+    .clip-path-triangle {
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+      transition: clip-path 1s;
+    }
+
+    .normal-clip{
+        clip-path: polygon(0 0, 0% 0, 100% 100%, 0% 100%);
+        transition: clip-path 1s;
+    }
+    .normal-clip:hover{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    
+    .clip-path-circle {
+      clip-path: circle(50% at 50% 50%);
+    }
+  }

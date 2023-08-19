@@ -21,11 +21,11 @@ export default function Footer() {
 
       <div className="flex flex-col lg:flex-row border-[1px] border-borderColor">
         <div className="p-4 w-full pt-8  border-b-[1px]  lg:border-l-[1px] border-borderColor">
-          <span className="uppercase">Counter-Print</span>
+          <span className="uppercase">LiteraryLane</span>
         </div>
         <div className="p-4 w-full pt-8  border-b-[1px]  lg:border-l-[1px]  border-borderColor">
           <span className="upppercase tracking-[.05rem]">
-            Counter-Print is an independent publisher and online store
+            LiteraryLane is an independent publisher and online store
             specialising in design and visual culture. We produce and curate a
             unique selection of books from around the world.
           </span>

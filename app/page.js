@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="h-auto">
+    <main className="h-auto mt-[60px]">
       <Hero />
       <ProductCollection />
       <CategoryCard />
