@@ -14,7 +14,8 @@ module.exports = {
       },
       colors: {
         backgroundColor: "#fff",
-        borderColor: "#e5e7eb",
+        borderColor: "#000",
+        hoverColor: "#31eb3c",
       },
     },
   },

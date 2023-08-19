@@ -1,16 +1,14 @@
-import Image from "next/image";
-
-export default function HeroCard() {
+export default function HeroCard(props) {
+  const { image } = props;
   return (
-    <div className="h-full w-full">
-      <Image
-        src={
-          "https://www.counter-print.co.uk/cdn/shop/collections/Books_720x.jpg?v=1691573291"
-        }
-        layout="fill"
-        objectFit="contain"
-        alt="Product Image"
-      />
+    <div className="h-full w-full border border-borderColor relative">
+      <div className="relative">
+        <img src={image} className="w-full object-cover" />
+
+        <span className="absolute  text-white uppercase  bottom-2 text-[14px] right-4">
+          ALL BOOKS
+        </span>
+      </div>
     </div>
   );
 }
