@@ -4,7 +4,7 @@ import twitterSvg from "../../public/assets/twitter.svg";
 
 export default function Footer() {
   return (
-    <footer className="border-[1px] border-borderColor">
+    <footer className="border-[1px] border-t-[0] border-borderColor">
       <div className=" bg-[#f1ffa7] flex flex-col lg:flex-row lg:justify-between p-4 pt-8 pb-8 gap-4">
         <span>
           Subscribe to our newsletter to receive special offers and first look

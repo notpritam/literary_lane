@@ -1,7 +1,7 @@
 export default function HeroCard(props) {
   const { image } = props;
   return (
-    <div className="h-full w-full border border-borderColor relative">
+    <div className="h-full w-full border-r-[1px] border-b-[1px] border-t-[1px] border-borderColor relative">
       <div className="relative">
         <img src={image} className="w-full object-cover" />
 
