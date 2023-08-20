@@ -47,7 +47,7 @@ export default function ProductCard(props) {
           id={`card${productItem.id}`}
         >
           <img
-            className="pulse"
+            className="pulse w-full h-full object-fill"
             alt=""
             style={{
               filter: `url(#filter${productItem.id})`,
@@ -56,7 +56,9 @@ export default function ProductCard(props) {
           ></img>
         </div>
         <div className="flex flex-col p-4 font-light">
-          <span className="text-[.8rem] ">{productItem.title}</span>
+          <span className="text-[.8rem] text-ellipsis line-clamp-1 ">
+            {productItem.title}
+          </span>
           <span className="text-[.8rem] tracking-[.05rem]">
             ${productItem.price}
           </span>
