@@ -39,15 +39,46 @@ export default function ProductCard(props) {
   return (
     <Link href={`/product?product_id=${productItem.id}`}>
       <div className="flex relative flex-col border-b-[1px] border-r-[1px] border-borderColor">
-        <div className="h-full w-full z-30 relative">
+        <svg style={{ display: "none" }}>
+          <defs>
+            <filter id={`filter${productItem.id}`}>
+              <feTurbulence
+                baseFrequency="0.7,0.8"
+                seed="0"
+                type="fractalNoise"
+                result="static"
+              >
+                <animate
+                  attributeName="seed"
+                  values="0;100"
+                  dur="800ms"
+                  repeatCount="1"
+                  begin={`card${productItem.id}.mouseenter`}
+                />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="static">
+                <animate
+                  attributeName="scale"
+                  values="0;40;0"
+                  dur="800ms"
+                  repeatCount="1"
+                  begin={`card${productItem.id}.mouseenter`}
+                />
+              </feDisplacementMap>
+            </filter>
+          </defs>
+        </svg>
+        <div
+          className="h-full w-full z-30 relative overflow-hidden "
+          id={`card${productItem.id}`}
+        >
           <img
-            // onMouseEnter={settl}
-            // onMouseLeave={reverse}
             alt=""
-            style={imageStyle}
-            width={300}
-            height={300}
             quality={100}
+            style={{
+              filter: `url(#filter${productItem.id})`,
+              cursor: "pointer",
+            }}
             src={productItem.images[0]}
           ></img>
         </div>

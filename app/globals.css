@@ -8,6 +8,7 @@ html, body{
 }
 
 *{
+  box-sizing: border-box;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none
@@ -24,6 +25,7 @@ html, body{
   }
 
   @layer utilities {
+
     .clip-path-triangle {
       clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
       transition: clip-path 1s;
@@ -41,3 +43,38 @@ html, body{
       clip-path: circle(50% at 50% 50%);
     }
   }
+
+
+  
+  @keyframes pulse {
+    from, to {
+      scale: 1;
+    }
+    
+    50% {
+      scale: 1.08;
+    }
+  }
+  
+  #card {
+  }
+  
+  #card > img {  
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+  
+  #card:hover > img {
+    animation: pulse 800ms ease-in-out;
+    filter: url(#noise);
+  }
+  
+  @media(max-width: 768px) {
+    #card {
+      width: 100%;
+    }
+  }
+  
+  

@@ -5,7 +5,7 @@ export default function BlogCard({ id }) {
     <div className="flex flex-col border-b-[1px] border-r-[1px] border-borderColor pb-8">
       <div className="h-full w-full border-b-[1px] border-borderColor overflow-hidden">
         <img
-          className="w-full h-full object-cover object-center max-h-[400px]"
+          className="w-full h-full object-cover object-center max-h-[400px] hover:scale-105 duration-300 ease-in-out transition-all"
           src="https://www.counter-print.co.uk/cdn/shop/files/01_d6b6a805-1618-41f7-8fe2-c1a20cfe8cfb_540x.jpg?v=1692349963"
         ></img>
       </div>

@@ -8,6 +8,7 @@ export default function CartItem(props) {
   const removeItemFunction = () => {
     removeItem({ itemIndex: index });
   };
+
   return (
     <div className="p-4 flex gap-2  border-b-[1px] border-borderColor">
       <div className="h-[100px] min-w-[100px]">
