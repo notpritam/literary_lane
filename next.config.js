@@ -5,7 +5,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["www.counter-print.co.uk"],
+    domains: ["www.counter-print.co.uk", "www.icons8.com"],
   },
 };
 

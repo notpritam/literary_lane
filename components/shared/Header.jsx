@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
-import useCart from "@/app/(store)/store";
+import useCart from "@/lib/store";
 import dynamic from "next/dynamic";
 import CartItem from "./CartItem";
 
@@ -115,6 +115,9 @@ function Header() {
   }
 
   const cart = useCart((state) => state?.cart);
+
+  var total = 0;
+
   console.log(cart);
 
   return (
@@ -186,8 +189,32 @@ function Header() {
         ) : (
           <>
             {cart.map((item, index) => (
-              <CartItem key={index} />
+              <CartItem key={index} product={item} index={index} />
             ))}
+
+            <div className="border-b-[1px] p-4 border-borderColor flex flex-col gap-2">
+              <span className="text-[14px] font-light">
+                Add a note to your order
+              </span>
+              <textarea className="border-[1px] w-full h-[120px]" />
+            </div>
+            <div className="p-4 flex flex-col gap-4">
+              <div className="w-full flex justify-between items-center ">
+                <span className="text-[18px] tracking-[.1rem]">Subtotal</span>
+                <span className="text-[18px] tracking-[.15rem] font-light">
+                  $
+                  {cart.map((item) => {
+                    total += parseInt(item.price);
+                  })}
+                  {total}
+                </span>
+              </div>
+              <div className="w-full flex items-center justify-center bg-black hover:border-[1px] hover:border-borderColor hover:bg-white hover:text-black duration-200 cursor-pointer text-white p-3">
+                <span className="font-light text-[14px] tracking-[.05rem]">
+                  Check out →
+                </span>
+              </div>
+            </div>
           </>
         )}
       </div>

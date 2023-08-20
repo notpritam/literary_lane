@@ -13,9 +13,9 @@ export default function BlogCollection() {
       </div>
 
       <div className="flex md:flex-row  border-[1px] border-b-0 border-r-0 border-borderColor  flex-col">
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        <BlogCard id="1" />
+        <BlogCard id="2" />
+        <BlogCard id="3" />
       </div>
     </div>
   );

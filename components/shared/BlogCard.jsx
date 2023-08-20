@@ -1,6 +1,6 @@
 import ArrowButton from "./CustomButton";
 
-export default function BlogCard() {
+export default function BlogCard({ id }) {
   return (
     <div className="flex flex-col border-b-[1px] border-r-[1px] border-borderColor pb-8">
       <div className="h-full w-full border-b-[1px] border-borderColor overflow-hidden">
@@ -19,7 +19,7 @@ export default function BlogCard() {
           which explores the use of optical effects in graphic design.Some art
           forms have ...
         </span>
-        <ArrowButton link="/" title="Read more" />
+        <ArrowButton link={`/blog?blog_id=${id}`} title="Read more" />
       </div>
     </div>
   );
