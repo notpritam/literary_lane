@@ -41,7 +41,7 @@ export default function ProductCard(props) {
   });
 
   return (
-    <Link href="/product">
+    <Link href="/product?product_id=123456">
       <div className="flex relative flex-col border-b-[1px] border-r-[1px] border-borderColor">
         <div className="h-full w-full z-30 relative">
           <img

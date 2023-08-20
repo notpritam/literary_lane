@@ -1,6 +1,10 @@
 import ArrowButton from "@/components/shared/CustomButton";
 
-export default function Page() {
+export default function Page(props) {
+  const { searchParams } = props;
+  const { product_id } = searchParams;
+
+  console.log(product_id);
   return (
     <div className="flex flex-col mt-[60px] md:flex-row items-start relative">
       <div className="w-full h-[30vh] md:h-auto  no-scrollbar flex overflow-scroll flex-nowrap flex-grow md:flex-col md:w-[50%] border-r-[1px] border-borderColor">
@@ -62,6 +66,7 @@ export default function Page() {
           prints using the gum bichromate process which gives them a graphic
           quality that is difficult to identify.
         </span>
+        <span>{product_id}</span>
       </div>
     </div>
   );
