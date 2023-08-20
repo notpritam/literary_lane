@@ -5,36 +5,7 @@ import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 
 export default function ProductCard(props) {
-  const imageRef = useRef();
   const { productItem } = props;
-  const imageStyle = {
-    border: "1px solid #fff",
-    position: "relative",
-    width: "100%",
-  };
-  // const imageStyle2 = {
-  //   border: "1px solid #fff",
-  //   position: "absolute",
-  //   top: "0",
-  //   width: "100%",
-  //   clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-  // };
-
-  // // const tl = gsap.timeline();
-  // const settl = () => {
-  //   gsap.to(imageRef?.current, {
-  //     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  //     duration: 1,
-  //   });
-  // };
-
-  // const reverse = () => {
-  //   gsap.to(imageRef?.current, {
-  //     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-  //     duration: 1,
-  //     ease: "expo.out",
-  //   });
-  // };
 
   return (
     <Link href={`/product?product_id=${productItem.id}`}>
@@ -73,6 +44,7 @@ export default function ProductCard(props) {
           id={`card${productItem.id}`}
         >
           <img
+            className="pulse"
             alt=""
             quality={100}
             style={{

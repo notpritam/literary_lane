@@ -25,6 +25,10 @@ html, body{
   }
 
   @layer utilities {
+    .pulse:hover {
+      animation: pulse 800ms ease-in-out;
+      
+    }
 
     .clip-path-triangle {
       clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
@@ -66,9 +70,9 @@ html, body{
     border-radius: inherit;
   }
   
-  #card:hover > img {
+  .pulse:hover > img {
     animation: pulse 800ms ease-in-out;
-    filter: url(#noise);
+    
   }
   
   @media(max-width: 768px) {
