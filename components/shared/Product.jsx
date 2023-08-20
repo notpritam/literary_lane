@@ -8,8 +8,11 @@ export default function ProductCard(props) {
   const { productItem } = props;
 
   return (
-    <Link href={`/product?product_id=${productItem.id}`}>
-      <div className="flex relative flex-col border-b-[1px] border-r-[1px] border-borderColor">
+    <Link
+      href={`/product?product_id=${productItem.id}`}
+      className="overflow-hidden"
+    >
+      <div className="flex relative flex-col overflow-hidden  border-b-[1px] border-r-[1px] border-borderColor">
         <svg style={{ display: "none" }}>
           <defs>
             <filter id={`filter${productItem.id}`}>
@@ -46,10 +49,8 @@ export default function ProductCard(props) {
           <img
             className="pulse"
             alt=""
-            quality={100}
             style={{
               filter: `url(#filter${productItem.id})`,
-              cursor: "pointer",
             }}
             src={productItem.images[0]}
           ></img>

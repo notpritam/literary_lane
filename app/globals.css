@@ -8,7 +8,7 @@ html, body{
 }
 
 *{
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none
@@ -59,26 +59,4 @@ html, body{
       scale: 1.08;
     }
   }
-  
-  #card {
-  }
-  
-  #card > img {  
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-  }
-  
-  .pulse:hover > img {
-    animation: pulse 800ms ease-in-out;
-    
-  }
-  
-  @media(max-width: 768px) {
-    #card {
-      width: 100%;
-    }
-  }
-  
   
