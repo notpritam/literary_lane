@@ -122,7 +122,7 @@ function Header() {
 
   return (
     <>
-      <header className="flex shadow-md fixed top-0 h-[60px] z-[999] w-full justify-between p-2 pt-4 pb-4 bg-backgroundColor text-black items-center border-b-[1.5px]  border-borderColor">
+      <header className="flex shadow-md fixed top-0 h-[60px] z-[999] w-full justify-between p-2 lg:p-4 pt-4 pb-4 bg-backgroundColor text-black items-center border-b-[1.5px]  border-borderColor">
         <span
           className="font-light text-[.9rem] tracking-[.1rem] cursor-pointer"
           onClick={() => playAnimation("open")}

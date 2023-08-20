@@ -41,14 +41,14 @@ export default function Page(props) {
 
         <div
           onClick={() => addItems()}
-          className="w-full flex items-center justify-center hover:bg-black hover:border-white   hover:text-white duration-300 transition-all ease-in-out  bg-white cursor-pointer border-borderColor border-[1px] p-3"
+          className="w-full flex items-center justify-center hover:shadow-lg   duration-300 transition-all ease-in-out  bg-white cursor-pointer border-borderColor border-[1px] p-3"
         >
           <span className="font-light text-[14px] tracking-[.05rem]">
             Add to cart →
           </span>
         </div>
-        <div className="w-full flex items-center justify-center bg-black hover:border-black border-[1px] hover:bg-white hover:text-black duration-200 cursor-pointer text-white p-3">
-          <span className="font-light text-[14px] tracking-[.05rem]">
+        <div className="w-full flex items-center justify-center bg-black hover:border-black border-[1px]  duration-200 cursor-pointer text-white p-3">
+          <span className="font-light hover:text-[16px] transition-all  ease-in-out duration-200 text-[14px] tracking-[.05rem]">
             Buy Now →
           </span>
         </div>
