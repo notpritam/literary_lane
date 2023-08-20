@@ -3,8 +3,11 @@ import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+import useCart from "@/app/(store)/store";
+import dynamic from "next/dynamic";
+import CartItem from "./CartItem";
 
-export default function Header() {
+function Header() {
   const sidebar_ref = useRef();
   const cart_ref = useRef();
   const category = [
@@ -31,7 +34,6 @@ export default function Header() {
   ];
 
   const tl = gsap.timeline({ paused: true, reversed: true });
-  const tl2 = gsap.timeline({ paused: true, reversed: true });
 
   const settl = () => {
     if (sidebar_ref) {
@@ -40,17 +42,6 @@ export default function Header() {
 
         {
           left: "0%",
-          duration: 0.5,
-        }
-      );
-    }
-
-    if (cart_ref) {
-      tl2.to(
-        cart_ref?.current,
-
-        {
-          right: "0%",
           duration: 0.5,
         }
       );
@@ -79,28 +70,59 @@ export default function Header() {
     return () => {};
   });
 
-  function playAnimation() {
-    if (tl.reversed()) {
-      tl.play();
+  function playAnimation(style) {
+    if (style == "close") {
+      gsap.to(
+        sidebar_ref?.current,
+
+        {
+          left: "-100%",
+          duration: 0.5,
+        }
+      );
     } else {
-      tl.reverse();
+      gsap.to(
+        sidebar_ref?.current,
+
+        {
+          left: "0%",
+          duration: 0.5,
+        }
+      );
     }
   }
 
-  function openSidebar() {
-    if (tl2.reversed()) {
-      tl2.play();
+  function openSidebar(style) {
+    if (style == "close") {
+      gsap.to(
+        cart_ref?.current,
+
+        {
+          right: "-100%",
+          duration: 0.5,
+        }
+      );
     } else {
-      tl2.reverse();
+      gsap.to(
+        cart_ref?.current,
+
+        {
+          right: "0%",
+          duration: 0.5,
+        }
+      );
     }
   }
+
+  const cart = useCart((state) => state?.cart);
+  console.log(cart);
 
   return (
     <>
       <header className="flex shadow-md fixed top-0 h-[60px] z-[999] w-full justify-between p-2 pt-4 pb-4 bg-backgroundColor text-black items-center border-b-[1.5px]  border-borderColor">
         <span
           className="font-light text-[.9rem] tracking-[.1rem] cursor-pointer"
-          onClick={playAnimation}
+          onClick={() => playAnimation("open")}
         >
           Menu
         </span>
@@ -111,9 +133,9 @@ export default function Header() {
         </Link>
         <span
           className="text-[.9rem] font-light tracking-[.1rem] cursor-pointer"
-          onClick={openSidebar}
+          onClick={() => openSidebar("open")}
         >
-          {"Cart(0)"}
+          Cart({cart.length})
         </span>
       </header>
 
@@ -126,7 +148,7 @@ export default function Header() {
           <span></span>
           <span
             className="font-thin text-[14px] cursor-pointer w-[20px] flex justify-end items-center"
-            onClick={playAnimation}
+            onClick={() => playAnimation("close")}
           >
             X
           </span>
@@ -151,26 +173,26 @@ export default function Header() {
           <span className="text-[16px]">Your Cart - (0) Items</span>
           <span
             className="font-thin text-[14px] cursor-pointer w-[20px] flex justify-end items-center"
-            onClick={openSidebar}
+            onClick={() => openSidebar("close")}
           >
             X
           </span>
         </div>
 
-        <div className="p-4">
-          <span className="text-[16px]">Your cart is currently empty</span>
-        </div>
-
-        {/* {category.map((item, index) => (
-          <div
-            key={index}
-            className="w-full flex p-2 pl-4 pr-4 justify-between text-[1.25rem]  border-b-[1px] border-borderColor min-h-[50px]"
-          >
-            <span>{item.title}</span>
-            <span>+</span>
+        {cart.length == 0 ? (
+          <div className="p-4">
+            <span className="text-[16px]">Your cart is currently empty</span>
           </div>
-        ))} */}
+        ) : (
+          <>
+            {cart.map((item, index) => (
+              <CartItem key={index} />
+            ))}
+          </>
+        )}
       </div>
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(Header), { ssr: false });

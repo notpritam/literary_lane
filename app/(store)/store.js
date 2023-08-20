@@ -1,7 +1,8 @@
-import { create } from "zustand";
+import { create, useStore } from "zustand";
+import { persist } from "zustand/middleware";
 
 const storeItems = (set, get) => ({
-  cart: [],
+  cart: [{ name: "" }, { name: "" }],
   product: {},
   wishList: [],
 
@@ -13,30 +14,35 @@ const storeItems = (set, get) => ({
     });
   },
   addItemToCart: (params) => {
-    const { newItem } = params;
+    const { product } = params;
 
-    const newCart = [...state.cart, newItem];
+    console.log(product);
 
     set((state) => {
-      cart: newCart;
+      const newCart = [...state.cart, product];
+      return {
+        cart: newCart,
+      };
     });
   },
 
   removeItem: (params) => {
     const { itemIndex } = params;
-    const newCart = state.cart.filter(
-      (element, elementIndex) => elementIndex !== itemIndex
-    );
 
     set((state) => {
-      cart: newCart;
+      const newCart = state.cart.filter(
+        (element, elementIndex) => elementIndex !== itemIndex
+      );
+      return {
+        cart: newCart,
+      };
     });
   },
   addItemToWishlist: (params) => {
     const { newItem } = params;
-    const newWishlist = [...state.wishList, newItem];
 
     set((state) => {
+      const newWishlist = [...state.wishList, newItem];
       wishList: newWishlist;
     });
   },
@@ -44,11 +50,10 @@ const storeItems = (set, get) => ({
   removeItemFromWishlist: (params) => {
     const { itemIndex } = params;
 
-    const newWishlist = state.wishList.filter(
-      (item, index) => index !== itemIndex
-    );
-
     set((state) => {
+      const newWishlist = state.wishList.filter(
+        (item, index) => index !== itemIndex
+      );
       wishList: newWishlist;
     });
   },
@@ -65,5 +70,5 @@ const storeItems = (set, get) => ({
   },
 });
 
-const useCart = useStore(persist(storeItems, { name: "libertLaneStore" }));
+const useCart = create(persist(storeItems, { name: "libertLaneStore" }));
 export default useCart;

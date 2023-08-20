@@ -1,8 +1,27 @@
+"use client";
 import ArrowButton from "@/components/shared/CustomButton";
+import useCart from "../(store)/store";
 
 export default function Page(props) {
   const { searchParams } = props;
   const { product_id } = searchParams;
+
+  const addItemToCart = useCart((state) => state.addItemToCart);
+
+  const product = {
+    id: "",
+    title: "",
+    price: "",
+    des: "",
+    images: [
+      "https://www.counter-print.co.uk/cdn/shop/files/01_48c9bdc0-2e15-4620-8beb-ffd2be9fb95a_900x.jpg?v=1692351529",
+      "https://www.counter-print.co.uk/cdn/shop/files/01_48c9bdc0-2e15-4620-8beb-ffd2be9fb95a_900x.jpg?v=1692351529",
+    ],
+  };
+
+  const addItems = () => {
+    addItemToCart({ product });
+  };
 
   console.log(product_id);
   return (
@@ -46,7 +65,10 @@ export default function Page(props) {
           <span>+</span>
         </div>
 
-        <div className="w-full flex items-center justify-center bg-white cursor-pointer border-borderColor border-[1px] p-3">
+        <div
+          onClick={addItems}
+          className="w-full flex items-center justify-center bg-white cursor-pointer border-borderColor border-[1px] p-3"
+        >
           <span className="font-light text-[14px] tracking-[.05rem]">
             Add to cart →
           </span>

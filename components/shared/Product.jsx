@@ -36,10 +36,6 @@ export default function ProductCard(props) {
     });
   };
 
-  useLayoutEffect(() => {
-    // settl();
-  });
-
   return (
     <Link href="/product?product_id=123456">
       <div className="flex relative flex-col border-b-[1px] border-r-[1px] border-borderColor">
