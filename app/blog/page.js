@@ -4,6 +4,18 @@ export default function Page(props) {
   const { blog_id } = searchParams;
 
   console.log(blog_id);
+  var imageLink = "";
+
+  if (blog_id == 1) {
+    imageLink =
+      "https://www.counter-print.co.uk/cdn/shop/articles/COUNTERPRINT-2305-0158-COMP_900x.jpg?v=1689237292";
+  } else if (blog_id == 2) {
+    imageLink =
+      "https://www.counter-print.co.uk/cdn/shop/articles/COUNTERPRINT-2305-0233_900x.jpg?v=1688568280";
+  } else {
+    imageLink =
+      "https://www.counter-print.co.uk/cdn/shop/articles/COUNTERPRINT-2305-0105_copy_900x.jpg?v=1687338736";
+  }
 
   return (
     <div className="mt-[60px] flex flex-col p-12 gap-2">
@@ -12,7 +24,7 @@ export default function Page(props) {
       <div className="w-full max-h-[600px] overflow-hidden mt-4 mb-4 border-[1px] border-borderColor">
         <img
           className="w-full h-full  object-contain hover:scale-105 duration-200 transition-all ease-in-out object-center"
-          src="https://www.counter-print.co.uk/cdn/shop/articles/COUNTERPRINT-2305-0158-COMP_900x.jpg?v=1689237292"
+          src={imageLink}
         ></img>
       </div>
       <span>
