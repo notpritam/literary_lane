@@ -1,8 +1,5 @@
-"use client";
-import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import { useLayoutEffect, useRef } from "react";
 
 export default function ProductCard(props) {
   const { productItem } = props;
@@ -46,14 +43,13 @@ export default function ProductCard(props) {
           className="h-full w-full z-30 relative overflow-hidden "
           id={`card${productItem.id}`}
         >
-          <img
-            className="pulse w-full h-full object-fill "
-            alt=""
-            style={{
-              filter: `url(#filter${productItem.id})`,
-            }}
+          <Image
             src={productItem.images[0]}
-          ></img>
+            className="pulse w-full h-full object-fill"
+            height={300}
+            width={300}
+            style={{ filter: `url(#filter${productItem.id})` }}
+          />
         </div>
         <div className="flex flex-col p-4 border-t-[1px] border-borderColor font-light">
           <span className="text-[.8rem] text-ellipsis line-clamp-1 ">
