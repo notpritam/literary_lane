@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ArrowButton from "./CustomButton";
 
 export default function CategoryCard() {
@@ -12,10 +13,14 @@ export default function CategoryCard() {
         <ArrowButton link="/" title="Browse Here"></ArrowButton>
       </div>
       <div className="w-full lg:w-[50%] bg-blue-300">
-        <img
+        <Image
           className="w-full h-full object-cover object-center grayscale-[40%] hover:grayscale-0 duration-200 transition-all ease-in-out"
-          src="https://www.counter-print.co.uk/cdn/shop/files/IMG_7565_8f5d58f0-38bd-4200-b271-e8c23ffab02a_1080x.jpg?v=1686651565"
-        ></img>
+          src={
+            "https://www.counter-print.co.uk/cdn/shop/files/IMG_7565_8f5d58f0-38bd-4200-b271-e8c23ffab02a_1080x.jpg?v=1686651565"
+          }
+          height={700}
+          width={700}
+        />
       </div>
     </div>
   );

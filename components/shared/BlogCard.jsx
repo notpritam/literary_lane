@@ -1,15 +1,18 @@
 import Link from "next/link";
 import ArrowButton from "./CustomButton";
+import Image from "next/image";
 
 export default function BlogCard({ id, image }) {
   return (
     <div className="flex flex-col border-b-[1px] border-r-[1px] border-borderColor pb-8">
       <Link href={`/blog?blog_id=${id}`}>
         <div className="h-full w-full border-b-[1px] border-borderColor overflow-hidden">
-          <img
-            className="w-full pulse h-full object-cover object-center max-h-[400px] transition-all"
+          <Image
+            className="w-full h-full pulse object-cover object-center max-h-[400px] transition-all"
             src={image}
-          ></img>
+            height={300}
+            width={300}
+          />
         </div>
       </Link>
       <div className="flex flex-col pl-4 pr-4 pt-8 pb-2 gap-2 font-light">
